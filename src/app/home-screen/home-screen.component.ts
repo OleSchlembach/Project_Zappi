@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { ControlingComponent } from '../controling/controling.component';
 
 @Component({
-  selector: 'app-home-screen',
+  selector: 'home-screen-component',
   standalone: true,
-  imports: [],
+  imports: [ControlingComponent],
   templateUrl: './home-screen.component.html',
   styleUrl: './home-screen.component.css'
 })
