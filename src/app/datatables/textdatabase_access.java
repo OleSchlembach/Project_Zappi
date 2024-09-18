@@ -59,8 +59,8 @@ public class JsonFileHandler {
   public static void main(String[] args) {
     JsonFileHandler handler = new JsonFileHandler();
 
-    // Beispiel: Daten in eine JSON-Datei schreiben
-    int[] data = {10, 20, 30, 40};
+    // Beispiel: Tages-Daten in eine JSON-Datei schreiben
+    int[] data = {0.10, 0.20, 0.15, 0.10, 0.05, 0.10, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00, 1.05};
     handler.writeToJsonFile("data.json", data);
 
     // Beispiel: Daten aus der JSON-Datei lesen und im gewünschten Format anzeigen
