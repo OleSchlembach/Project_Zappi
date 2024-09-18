@@ -1,2 +1,3 @@
-<app-core></app-core>
-<app-graph></app-graph>
+<app-core (optionChanged)="updateBooleans($event)"></app-core>
+<app-graph *ngIf="showDailyGraph"></app-graph>
+<app-graph-alt *ngIf="showMonthlyGraph"></app-graph-alt>

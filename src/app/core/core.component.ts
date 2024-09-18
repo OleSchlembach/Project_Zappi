@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
@@ -18,22 +18,25 @@ export class CoreComponent {
   isOn: boolean = false;
   selectedOption: string = 'daily';
 
+  @Output() optionChanged = new EventEmitter<string>();
+
   togglePower() {
     this.isOn = !this.isOn;
-    this.mockApiCall();
+    this.mockApiCallOnOff();
   }
 
-  mockApiCall() {
+  mockApiCallOnOff() {
     const apiUrl = 'apiUrl/SocetPower';
     if(this.isOn){
-      console.log('API response:' + 'Socet was turned off');
+      console.log('API response:' + 'Socet was turned on');
     }
     else{
-      console.log('API response:' + 'Socet was turned on');
+      console.log('API response:' + 'Socet was turned off');
     }
   }
 
   onOptionChange(option: string) {
     this.selectedOption = option;
+    this.optionChanged.emit(this.selectedOption);
   }
 }

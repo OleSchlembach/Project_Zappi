@@ -28,6 +28,9 @@ export class GraphComponent {
       }
     },
     xAxis: {
+      title: {
+        text: 'Hours'
+      },
       accessibility: {
         rangeDescription: 'Range: 1 to 24'
       }
