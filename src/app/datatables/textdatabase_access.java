@@ -8,8 +8,8 @@ import java.io.IOException;
 
 public class JsonFileHandler {
 
-  // Methode zum Schreiben von Daten in eine JSON-Datei
-  public void writeToJsonFile(String filePath, int[] data) {
+  // This Method writes new Data into the JSON-Database
+  public void writeToTextdatabase(String filePath, int[] data) {
     JSONArray jsonArray = new JSONArray();
     for (int value : data) {
       jsonArray.put(value);
@@ -20,13 +20,13 @@ public class JsonFileHandler {
 
     try (FileWriter file = new FileWriter(filePath)) {
       file.write(jsonObject.toString());
-      System.out.println("JSON-Datei wurde erfolgreich geschrieben.");
+      System.out.println("JSON-File successfully Updated.");
     } catch (IOException e) {
       e.printStackTrace();
     }
   }
 
-  // Methode zum Lesen von Daten aus einer JSON-Datei und Rückgabe im gewünschten Format
+  // This Method reads all Data from the JSON-Databse
   public String readFromJsonFile(String filePath) {
     StringBuilder jsonData = new StringBuilder();
 
@@ -43,7 +43,7 @@ public class JsonFileHandler {
     JSONObject jsonObject = new JSONObject(jsonData.toString());
     JSONArray jsonArray = jsonObject.getJSONArray("values");
 
-    // Ausgelesene Werte im Format "[wert,wert,wert,...]" abspeichern
+    // Transfer the Data into the proper Format for updating Highcharts
     StringBuilder result = new StringBuilder("[");
     for (int i = 0; i < jsonArray.length(); i++) {
       result.append(jsonArray.getInt(i));
@@ -59,11 +59,11 @@ public class JsonFileHandler {
   public static void main(String[] args) {
     JsonFileHandler handler = new JsonFileHandler();
 
-    // Beispiel: Tages-Daten in eine JSON-Datei schreiben
+    // Example-Data for one Day
     int[] data = {0.10, 0.20, 0.15, 0.10, 0.05, 0.10, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00, 1.05};
-    handler.writeToJsonFile("data.json", data);
+    handler.writeToTextdatabase("data.json", data);
 
-    // Beispiel: Daten aus der JSON-Datei lesen und im gewünschten Format anzeigen
+    // Test-Data-output
     String result = handler.readFromJsonFile("data.json");
     System.out.println("Ausgelesene Werte: " + result);
   }
