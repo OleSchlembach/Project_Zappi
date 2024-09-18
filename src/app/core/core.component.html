@@ -1,12 +1,12 @@
 <div style="display: flex; flex-direction: column; align-items: center;">
   <label class="toggle-button">
-    <input type="checkbox" (click)="togglePower()">{{ isOn ? 'Off' : 'On' }}>
+    <input type="checkbox" checked (click)="togglePower()">{{ isOn ? 'Off' : 'On' }}>
     <span class="slider round"></span>
   </label>
 
   <div style="margin-top: 10px;">
     <div class="core-radio-button">
-      <input type="radio" id="daily" name="option" value="daily" (change)="onOptionChange('daily')">
+      <input type="radio" id="daily" name="option" value="daily" (change)="onOptionChange('daily')" checked>
       <label for="daily">Daily</label>
     </div>
 
